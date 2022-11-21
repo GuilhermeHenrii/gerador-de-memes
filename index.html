@@ -10,31 +10,44 @@
 </head>
 <body>
     <div class="conteiner">
-        <div class="app">
+        <div class="app" id="downlabled">
             <div class="logo">
                 <img src="/pictures/logo.png" alt="logo da Dio">
             </div>
             <div class="app-image">
                 <textarea class="text-box" placeholder="Digite seu meme" aria-multiline="true"></textarea>
 
-                <div class="display-image">
+                <div id="display-image">
                 </div>
 
                 <textarea class="text-box" placeholder="Digite seu meme" aria-multiline="true"></textarea>
             </div>
             </div>
             <div class="app-photo-picker">
-                <select id="meme-list">
-                    <option value="1">aaaaaaaaaaaaaaaaaaa
-                    <option>
+                <select id="memes-list" onchange="changeMemePicture(this.value)">
                 </select>
-                <input type="file" id="image-imput" accept="image/jpeg, image/jpng, image/jpg" >
+                <input type="file" id="image-input" accept="image/jpeg, image/jpng, image/jpg" >
             </div>
             <div class="download">
-                <button id="btn-dowload">DOWLOAD</button>
+                <button id="btn-download">DOWLOAD</button>
             </div>
         </div>
     </div>
     <script src="./javascript/scripts.js"></script>
+    <script src="./javascript/html2canvas.js"></script>
+    <script>
+        document.getElementById("btn-download").onclick = () =>{
+        const screenshotPrint = document.querySelector("#downlabled")
+
+      html2canvas(screenshotPrint).then((canvas)=>{
+        const base64Image = canvas.toDataURL("image/png")
+        let anchor = document.createElement("a")
+        anchor.setAttribute("href", base64Image)
+        anchor.setAttribute("download", "my-meme.png")
+        anchor.click()
+        anchor.remove()
+      })
+        }
+    </script>
 </body>
 </html>
