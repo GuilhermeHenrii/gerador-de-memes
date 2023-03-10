@@ -40,7 +40,7 @@ async function createGallery(imageList){
     const memeSelector = document.querySelector("#memes-list")
     imageList.forEach(picture => {
         let newOption = document.createElement("option")
-        newOption.text = picture.name.toUpperCase()
+        newOption.text = picture.name.toLowerCase()
         newOption.value = picture.path
         memeSelector.appendChild(newOption)
     });
