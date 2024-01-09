@@ -1,4 +1,4 @@
-# Big Game Survey 
+# Gerador de memes
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/GuilhermeHenrii/gerador-de-memes/blob/main/LICENSE)
 
 # Sobre o projeto
